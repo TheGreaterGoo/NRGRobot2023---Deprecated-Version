@@ -468,11 +468,20 @@ public final class Autos {
     double autoSpeed = getAutoSpeed(drivetrain, false);
 
     return Commands.sequence(
+<<<<<<< HEAD
         Commands.runOnce(() -> drivetrain.resetPosition(new Pose2d(0, 0, new Rotation2d(Math.PI)))),
         Commands.runEnd(() -> intake.runMotor(-1.5), () -> intake.stopMotor()).withTimeout(1.5),
         new DriveStraight(drivetrain, new Translation2d(0.5, 0), autoSpeed, ORIENT_90_DEGREES),
         new DriveStraight(drivetrain, new Translation2d(-0.5, 0), autoSpeed, ORIENT_90_DEGREES),
         new DriveStraight(drivetrain, new Translation2d(3, 0), autoSpeed, ORIENT_ZERO_DEGREES));
+=======
+      Commands.runOnce(() -> subsystems.drivetrain.resetPosition(new Pose2d(0,0,new Rotation2d(Math.PI)))),
+      Commands.runEnd(() -> subsystems.intake.runMotor(-0.5), () -> subsystems.intake.stopMotor()).withTimeout(0.5),
+      new DriveStraight(subsystems.drivetrain, new Translation2d(0.5,0), getAutoSpeed(subsystems.drivetrain,false), Rotation2d.fromDegrees(90)),
+      new DriveStraight(subsystems.drivetrain, new Translation2d(-0.5,0), getAutoSpeed(subsystems.drivetrain, false), Rotation2d.fromDegrees(90)),
+      new DriveStraight(subsystems.drivetrain, new Translation2d(3,0),getAutoSpeed(subsystems.drivetrain, false), new Rotation2d(0))
+    );
+>>>>>>> parent of abe6ebd (Bonney lake auto attempts)
   }
 
   @AutonomousCommandMethod(name = "Score Cube-No Drive Out Of Community")
@@ -482,6 +491,7 @@ public final class Autos {
     double autoSpeed = getAutoSpeed(drivetrain, false);
 
     return Commands.sequence(
+<<<<<<< HEAD
         Commands.runOnce(() -> drivetrain.resetPosition(new Pose2d(0, 0, new Rotation2d(Math.PI)))),
         Commands.runEnd(() -> intake.runMotor(-1.5), () -> intake.stopMotor()).withTimeout(1.5),
         new DriveStraight(drivetrain, new Translation2d(0.5, 0), autoSpeed, ORIENT_90_DEGREES),
@@ -514,6 +524,14 @@ public final class Autos {
             () -> DriverStation.getAlliance().equals(Alliance.Red)),
         new AutoBalanceOnChargeStation(drivetrain));
   }
+=======
+      Commands.runOnce(() -> subsystems.drivetrain.resetPosition(new Pose2d(0,0,new Rotation2d(Math.PI)))),
+      Commands.runEnd(() -> subsystems.intake.runMotor(-0.5), () -> subsystems.intake.stopMotor()).withTimeout(0.5),
+      new DriveStraight(subsystems.drivetrain, new Translation2d(0.5,0), getAutoSpeed(subsystems.drivetrain,false), Rotation2d.fromDegrees(90)),
+      new DriveStraight(subsystems.drivetrain, new Translation2d(-0.5,0), getAutoSpeed(subsystems.drivetrain, false), Rotation2d.fromDegrees(90))
+    );
+  }
+>>>>>>> parent of abe6ebd (Bonney lake auto attempts)
 
   private Autos() {
     throw new UnsupportedOperationException("This is a utility class!");
